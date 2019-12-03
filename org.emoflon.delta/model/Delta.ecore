@@ -13,9 +13,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructuralDelta">
     <eStructuralFeatures xsi:type="ecore:EReference" name="createdObjects" upperBound="-1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deletedObjects" upperBound="-1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createdLinks" upperBound="-1"
+        eType="#//Link" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deletedLinks" upperBound="-1"
+        eType="#//Link" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Link">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
@@ -24,6 +28,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Delta">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="atomic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeDeltas" upperBound="-1"
+        eType="#//AttributeDelta" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="structuralDeltas" upperBound="-1"
+        eType="#//StructuralDelta" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeltaContainer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DeltaContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deltas" upperBound="-1"
+        eType="#//Delta" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>
