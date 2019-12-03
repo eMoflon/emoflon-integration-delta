@@ -38,6 +38,12 @@
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
           </endLabelStyleDescription>
         </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_8VUBGRXnEeqxLtnJ9GThjA" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelFormat>bold</labelFormat>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </computedStyleDescriptions>
       </data>
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_WXLPABW9EeqfRoTWWgv9RQ" source="GMF_DIAGRAMS">
@@ -53,11 +59,15 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_wT-INhW9EeqfRoTWWgv9RQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_wT-INxW9EeqfRoTWWgv9RQ"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_8Vm8DBXnEeqxLtnJ9GThjA" type="3010" element="_8VUBGBXnEeqxLtnJ9GThjA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_8Vm8DRXnEeqxLtnJ9GThjA" fontName="Segoe UI" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_8Vm8DhXnEeqxLtnJ9GThjA"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_X8HMghW9EeqfRoTWWgv9RQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_X8HMgxW9EeqfRoTWWgv9RQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_X7-CkxW9EeqfRoTWWgv9RQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X7-ClBW9EeqfRoTWWgv9RQ" x="110" y="340" width="143" height="73"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X7-ClBW9EeqfRoTWWgv9RQ" x="110" y="340" width="158" height="88"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_614nwRW9EeqfRoTWWgv9RQ" type="2003" element="_61lFwBW9EeqfRoTWWgv9RQ">
           <children xmi:type="notation:Node" xmi:id="_614nxBW9EeqfRoTWWgv9RQ" type="5007"/>
@@ -182,7 +192,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_-kZtohXNEeqEb58LiYCKzA" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-kZtoxXNEeqEb58LiYCKzA" points="[0, 0, 133, -120]$[-66, 0, 67, -120]$[-66, 120, 67, 0]$[-133, 120, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-ka7wBXNEeqEb58LiYCKzA" id="(0.5,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-ka7wRXNEeqEb58LiYCKzA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-ka7wRXNEeqEb58LiYCKzA" id="(0.4519230769230769,0.4127906976744186)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_kQS_UBXbEeqxLtnJ9GThjA" type="4001" element="_kPg8MhXbEeqxLtnJ9GThjA" source="_UzIIsBXFEeqZSJXkU1Thyw" target="_614nwRW9EeqfRoTWWgv9RQ">
           <children xmi:type="notation:Node" xmi:id="_kQfzoBXbEeqxLtnJ9GThjA" type="6001">
@@ -227,6 +237,14 @@
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_8VUBGBXnEeqxLtnJ9GThjA" name="newValue : EJavaObject" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="Delta.ecore#//AttributeDelta/newValue"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="Delta.ecore#//AttributeDelta/newValue"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_8VUBGhXnEeqxLtnJ9GThjA" labelAlignment="LEFT" description="_8VUBGRXnEeqxLtnJ9GThjA">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_61lFwBW9EeqfRoTWWgv9RQ" name="StructuralDelta" tooltipText="" outgoingEdges="_-ink8BXNEeqEb58LiYCKzA _-ir2YBXNEeqEb58LiYCKzA" incomingEdges="_kPg8MhXbEeqxLtnJ9GThjA" width="12" height="10">
