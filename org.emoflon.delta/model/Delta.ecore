@@ -30,8 +30,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="atomic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributeDeltas" upperBound="-1"
         eType="#//AttributeDelta" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="structuralDeltas" upperBound="-1"
-        eType="#//StructuralDelta" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="structuralDelta" eType="#//StructuralDelta"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeltaContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="deltas" upperBound="-1"
