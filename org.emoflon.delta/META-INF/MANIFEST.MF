@@ -1,9 +1,10 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: org.emoflon.delta
 Bundle-SymbolicName: org.emoflon.delta;singleton:=true
-Export-Package: delta.impl,
- delta,
- delta.util
+Export-Package: delta,
+ delta.impl,
+ delta.util,
+ org.emoflon.delta.validation
 Bundle-Name: org.emoflon.delta
 Bundle-Version: 0.0.1.qualifier
 Require-Bundle: org.eclipse.emf.ecore,
