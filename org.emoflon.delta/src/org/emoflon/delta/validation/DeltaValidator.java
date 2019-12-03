@@ -11,11 +11,13 @@ import delta.StructuralDelta;
 public class DeltaValidator {
 
 	private static final String DANGLING_NODE_MSG = "Created object is not part of the containment hierachy: ";
-	private static final String NULL_REF_ATTRDELTA_ATTR = "Attribute value is not specified: ";
-	private static final String NULL_REF_ATTRDELTA_OBJ = "Object value is not specified: ";
-	private static final String NULL_REF_LINK_SRC = "Source value is not specified: ";
-	private static final String NULL_REF_LINK_TRG = "Target value is not specified: ";
-	private static final String NULL_REF_LINK_TYPE = "Type value is not specified: ";
+	private static final String NULL_REF_ATTRDELTA_ATTR = "Value 'attribute' is not specified: ";
+	private static final String NULL_REF_ATTRDELTA_OBJ = "Value 'object' is not specified: ";
+	private static final String NULL_REF_ATTRDELTA_NEWVAL = "Value 'newValue' is not specified: ";
+	
+	private static final String NULL_REF_LINK_SRC = "Value 'src' is not specified: ";
+	private static final String NULL_REF_LINK_TRG = "Value 'trg' is not specified: ";
+	private static final String NULL_REF_LINK_TYPE = "Value 'type' is not specified: ";
 
 	/**
 	 * Checks deltas for invalid constructs.
@@ -36,6 +38,8 @@ public class DeltaValidator {
 				throw new InvalidDeltaException(NULL_REF_ATTRDELTA_ATTR + attrDelta.toString());
 			if (attrDelta.getObject() == null)
 				throw new InvalidDeltaException(NULL_REF_ATTRDELTA_OBJ + attrDelta.toString());
+			if(attrDelta.getNewValue() == null)
+				throw new InvalidDeltaException(NULL_REF_ATTRDELTA_NEWVAL + attrDelta.toString());
 		}
 
 		StructuralDelta strDelta = delta.getStructuralDelta();
