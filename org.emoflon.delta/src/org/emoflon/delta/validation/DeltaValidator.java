@@ -29,6 +29,7 @@ public class DeltaValidator {
 		for (Delta delta : deltas.getDeltas()) {
 			checkForNullRefs(delta);
 			checkForCreatedDanglingNodes(delta);
+			// TODO adrianm: check for created-deleted pairs of elements or edges
 		}
 	}
 
@@ -68,7 +69,7 @@ public class DeltaValidator {
 			for (EObject obj : strDelta.getCreatedObjects()) {
 				boolean isDangling = true;
 				for (Link link : strDelta.getCreatedLinks()) {
-					if (!link.getType().isContainment()) // TODO adrianm: could also be isContainer() (?)
+					if (!link.getType().isContainment())
 						continue;
 
 					if (obj.equals(link.getTrg())) {
