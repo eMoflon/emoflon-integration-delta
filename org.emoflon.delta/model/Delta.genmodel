@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.emoflon.delta/gen" modelPluginID="org.emoflon.delta"
+    modelName="Delta" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true">
+  <foreignModel>Delta.ecore</foreignModel>
+  <genPackages prefix="Delta" disposableProviderFactory="true" ecorePackage="Delta.ecore#/">
+    <genClasses ecoreClass="Delta.ecore#//AttributeDelta">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Delta.ecore#//AttributeDelta/attribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Delta.ecore#//AttributeDelta/object"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Delta.ecore#//AttributeDelta/newValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Delta.ecore#//StructuralDelta">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Delta.ecore#//StructuralDelta/createdObjects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Delta.ecore#//StructuralDelta/deletedObjects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Delta.ecore#//StructuralDelta/createdLinks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Delta.ecore#//StructuralDelta/deletedLinks"/>
+    </genClasses>
+    <genClasses ecoreClass="Delta.ecore#//Link">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Delta.ecore#//Link/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Delta.ecore#//Link/src"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Delta.ecore#//Link/trg"/>
+    </genClasses>
+    <genClasses ecoreClass="Delta.ecore#//Delta">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Delta.ecore#//Delta/atomic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Delta.ecore#//Delta/attributeDeltas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Delta.ecore#//Delta/structuralDelta"/>
+    </genClasses>
+    <genClasses ecoreClass="Delta.ecore#//DeltaContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Delta.ecore#//DeltaContainer/deltas"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
