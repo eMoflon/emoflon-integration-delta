@@ -14,7 +14,7 @@ public class DeltaValidator {
 	private static final String NULL_REF_ATTRDELTA_ATTR = "Value 'attribute' is not specified: ";
 	private static final String NULL_REF_ATTRDELTA_OBJ = "Value 'object' is not specified: ";
 	private static final String NULL_REF_ATTRDELTA_NEWVAL = "Value 'newValue' is not specified: ";
-	
+
 	private static final String NULL_REF_LINK_SRC = "Value 'src' is not specified: ";
 	private static final String NULL_REF_LINK_TRG = "Value 'trg' is not specified: ";
 	private static final String NULL_REF_LINK_TYPE = "Value 'type' is not specified: ";
@@ -29,7 +29,8 @@ public class DeltaValidator {
 		for (Delta delta : deltas.getDeltas()) {
 			checkForNullRefs(delta);
 			checkForCreatedDanglingNodes(delta);
-			// TODO adrianm: check for created-deleted pairs of elements or edges
+			// adrianm: if there are any problems,
+			// maybe check for created-deleted pairs of elements or edges
 		}
 	}
 
@@ -39,7 +40,7 @@ public class DeltaValidator {
 				throw new InvalidDeltaException(NULL_REF_ATTRDELTA_ATTR + attrDelta.toString());
 			if (attrDelta.getObject() == null)
 				throw new InvalidDeltaException(NULL_REF_ATTRDELTA_OBJ + attrDelta.toString());
-			if(attrDelta.getNewValue() == null)
+			if (attrDelta.getNewValue() == null)
 				throw new InvalidDeltaException(NULL_REF_ATTRDELTA_NEWVAL + attrDelta.toString());
 		}
 
@@ -55,11 +56,11 @@ public class DeltaValidator {
 	}
 
 	private static void checkForNullRefs(Link link) throws InvalidDeltaException {
-		if(link.getSrc() == null)
+		if (link.getSrc() == null)
 			throw new InvalidDeltaException(NULL_REF_LINK_SRC + link.toString());
-		if(link.getTrg() == null)
+		if (link.getTrg() == null)
 			throw new InvalidDeltaException(NULL_REF_LINK_TRG + link.toString());
-		if(link.getType() == null)
+		if (link.getType() == null)
 			throw new InvalidDeltaException(NULL_REF_LINK_TYPE + link.toString());
 	}
 
