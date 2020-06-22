@@ -6,10 +6,12 @@ Export-Package: delta,
  delta.util,
  org.emoflon.delta.validation
 Bundle-Name: org.emoflon.delta
-Bundle-Version: 0.0.1.qualifier
-Require-Bundle: org.eclipse.emf.ecore,
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: 
+Bundle-Localization: plugin
+Bundle-ClassPath: .
