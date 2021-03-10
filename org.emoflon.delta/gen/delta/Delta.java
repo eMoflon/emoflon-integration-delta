@@ -5,6 +5,7 @@ package delta;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.emoflon.delta.validation.InvalidDeltaException;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link delta.Delta#isAtomic <em>Atomic</em>}</li>
  *   <li>{@link delta.Delta#getAttributeDeltas <em>Attribute Deltas</em>}</li>
  *   <li>{@link delta.Delta#getStructuralDelta <em>Structural Delta</em>}</li>
+ *   <li>{@link delta.Delta#getContainer <em>Container</em>}</li>
  * </ul>
  *
  * @see delta.DeltaPackage#getDelta()
@@ -80,5 +82,37 @@ public interface Delta extends EObject {
 	 * @generated
 	 */
 	void setStructuralDelta(StructuralDelta value);
+
+	/**
+	 * Returns the value of the '<em><b>Container</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link delta.DeltaContainer#getDeltas <em>Deltas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Container</em>' container reference.
+	 * @see #setContainer(DeltaContainer)
+	 * @see delta.DeltaPackage#getDelta_Container()
+	 * @see delta.DeltaContainer#getDeltas
+	 * @model opposite="deltas" transient="false"
+	 * @generated
+	 */
+	DeltaContainer getContainer();
+
+	/**
+	 * Sets the value of the '{@link delta.Delta#getContainer <em>Container</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Container</em>' container reference.
+	 * @see #getContainer()
+	 * @generated
+	 */
+	void setContainer(DeltaContainer value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="delta.EInvalidDeltaException"
+	 * @generated
+	 */
+	void apply() throws InvalidDeltaException;
 
 } // Delta

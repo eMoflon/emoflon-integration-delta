@@ -102,8 +102,7 @@ public class AttributeDeltaImpl extends EObjectImpl implements AttributeDelta {
 			attribute = (EAttribute) eResolveProxy(oldAttribute);
 			if (attribute != oldAttribute) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DeltaPackage.ATTRIBUTE_DELTA__ATTRIBUTE,
-							oldAttribute, attribute));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DeltaPackage.ATTRIBUTE_DELTA__ATTRIBUTE, oldAttribute, attribute));
 			}
 		}
 		return attribute;
@@ -128,8 +127,7 @@ public class AttributeDeltaImpl extends EObjectImpl implements AttributeDelta {
 		EAttribute oldAttribute = attribute;
 		attribute = newAttribute;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DeltaPackage.ATTRIBUTE_DELTA__ATTRIBUTE, oldAttribute,
-					attribute));
+			eNotify(new ENotificationImpl(this, Notification.SET, DeltaPackage.ATTRIBUTE_DELTA__ATTRIBUTE, oldAttribute, attribute));
 	}
 
 	/**
@@ -144,8 +142,7 @@ public class AttributeDeltaImpl extends EObjectImpl implements AttributeDelta {
 			object = eResolveProxy(oldObject);
 			if (object != oldObject) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DeltaPackage.ATTRIBUTE_DELTA__OBJECT,
-							oldObject, object));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DeltaPackage.ATTRIBUTE_DELTA__OBJECT, oldObject, object));
 			}
 		}
 		return object;
@@ -170,8 +167,7 @@ public class AttributeDeltaImpl extends EObjectImpl implements AttributeDelta {
 		EObject oldObject = object;
 		object = newObject;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DeltaPackage.ATTRIBUTE_DELTA__OBJECT, oldObject,
-					object));
+			eNotify(new ENotificationImpl(this, Notification.SET, DeltaPackage.ATTRIBUTE_DELTA__OBJECT, oldObject, object));
 	}
 
 	/**
@@ -194,8 +190,7 @@ public class AttributeDeltaImpl extends EObjectImpl implements AttributeDelta {
 		Object oldNewValue = newValue;
 		newValue = newNewValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DeltaPackage.ATTRIBUTE_DELTA__NEW_VALUE, oldNewValue,
-					newValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, DeltaPackage.ATTRIBUTE_DELTA__NEW_VALUE, oldNewValue, newValue));
 	}
 
 	/**

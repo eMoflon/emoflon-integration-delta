@@ -12,10 +12,13 @@ import delta.StructuralDelta;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.emoflon.delta.validation.InvalidDeltaException;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,6 +61,13 @@ public class DeltaPackageImpl extends EPackageImpl implements DeltaPackage {
 	 * @generated
 	 */
 	private EClass deltaContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType eInvalidDeltaExceptionEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -103,8 +113,7 @@ public class DeltaPackageImpl extends EPackageImpl implements DeltaPackage {
 
 		// Obtain or create and register package
 		Object registeredDeltaPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		DeltaPackageImpl theDeltaPackage = registeredDeltaPackage instanceof DeltaPackageImpl
-				? (DeltaPackageImpl) registeredDeltaPackage
+		DeltaPackageImpl theDeltaPackage = registeredDeltaPackage instanceof DeltaPackageImpl ? (DeltaPackageImpl) registeredDeltaPackage
 				: new DeltaPackageImpl();
 
 		isInited = true;
@@ -299,6 +308,26 @@ public class DeltaPackageImpl extends EPackageImpl implements DeltaPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getDelta_Container() {
+		return (EReference) deltaEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDelta__Apply() {
+		return deltaEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDeltaContainer() {
 		return deltaContainerEClass;
 	}
@@ -311,6 +340,16 @@ public class DeltaPackageImpl extends EPackageImpl implements DeltaPackage {
 	@Override
 	public EReference getDeltaContainer_Deltas() {
 		return (EReference) deltaContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getEInvalidDeltaException() {
+		return eInvalidDeltaExceptionEDataType;
 	}
 
 	/**
@@ -363,9 +402,14 @@ public class DeltaPackageImpl extends EPackageImpl implements DeltaPackage {
 		createEAttribute(deltaEClass, DELTA__ATOMIC);
 		createEReference(deltaEClass, DELTA__ATTRIBUTE_DELTAS);
 		createEReference(deltaEClass, DELTA__STRUCTURAL_DELTA);
+		createEReference(deltaEClass, DELTA__CONTAINER);
+		createEOperation(deltaEClass, DELTA___APPLY);
 
 		deltaContainerEClass = createEClass(DELTA_CONTAINER);
 		createEReference(deltaContainerEClass, DELTA_CONTAINER__DELTAS);
+
+		// Create data types
+		eInvalidDeltaExceptionEDataType = createEDataType(EINVALID_DELTA_EXCEPTION);
 	}
 
 	/**
@@ -399,59 +443,52 @@ public class DeltaPackageImpl extends EPackageImpl implements DeltaPackage {
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(attributeDeltaEClass, AttributeDelta.class, "AttributeDelta", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDelta_Attribute(), ecorePackage.getEAttribute(), null, "attribute", null, 1, 1,
-				AttributeDelta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttributeDelta_Object(), ecorePackage.getEObject(), null, "object", null, 1, 1,
-				AttributeDelta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttributeDelta_NewValue(), ecorePackage.getEJavaObject(), "newValue", null, 1, 1,
-				AttributeDelta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(attributeDeltaEClass, AttributeDelta.class, "AttributeDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributeDelta_Attribute(), ecorePackage.getEAttribute(), null, "attribute", null, 1, 1, AttributeDelta.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttributeDelta_Object(), ecorePackage.getEObject(), null, "object", null, 1, 1, AttributeDelta.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttributeDelta_NewValue(), ecorePackage.getEJavaObject(), "newValue", null, 1, 1, AttributeDelta.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(structuralDeltaEClass, StructuralDelta.class, "StructuralDelta", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStructuralDelta_CreatedObjects(), ecorePackage.getEObject(), null, "createdObjects", null, 0,
-				-1, StructuralDelta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStructuralDelta_DeletedObjects(), ecorePackage.getEObject(), null, "deletedObjects", null, 0,
-				-1, StructuralDelta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStructuralDelta_CreatedLinks(), this.getLink(), null, "createdLinks", null, 0, -1,
-				StructuralDelta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStructuralDelta_DeletedLinks(), this.getLink(), null, "deletedLinks", null, 0, -1,
-				StructuralDelta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(structuralDeltaEClass, StructuralDelta.class, "StructuralDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStructuralDelta_CreatedObjects(), ecorePackage.getEObject(), null, "createdObjects", null, 0, -1, StructuralDelta.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStructuralDelta_DeletedObjects(), ecorePackage.getEObject(), null, "deletedObjects", null, 0, -1, StructuralDelta.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStructuralDelta_CreatedLinks(), this.getLink(), null, "createdLinks", null, 0, -1, StructuralDelta.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStructuralDelta_DeletedLinks(), this.getLink(), null, "deletedLinks", null, 0, -1, StructuralDelta.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLink_Type(), ecorePackage.getEReference(), null, "type", null, 1, 1, Link.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLink_Src(), ecorePackage.getEObject(), null, "src", null, 1, 1, Link.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getLink_Trg(), ecorePackage.getEObject(), null, "trg", null, 1, 1, Link.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getLink_Type(), ecorePackage.getEReference(), null, "type", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLink_Src(), ecorePackage.getEObject(), null, "src", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLink_Trg(), ecorePackage.getEObject(), null, "trg", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deltaEClass, Delta.class, "Delta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDelta_Atomic(), ecorePackage.getEBoolean(), "atomic", null, 0, 1, Delta.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDelta_AttributeDeltas(), this.getAttributeDelta(), null, "attributeDeltas", null, 0, -1,
-				Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDelta_StructuralDelta(), this.getStructuralDelta(), null, "structuralDelta", null, 0, 1,
-				Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelta_Atomic(), ecorePackage.getEBoolean(), "atomic", null, 0, 1, Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDelta_AttributeDeltas(), this.getAttributeDelta(), null, "attributeDeltas", null, 0, -1, Delta.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDelta_StructuralDelta(), this.getStructuralDelta(), null, "structuralDelta", null, 0, 1, Delta.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDelta_Container(), this.getDeltaContainer(), this.getDeltaContainer_Deltas(), "container", null, 0, 1, Delta.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(deltaContainerEClass, DeltaContainer.class, "DeltaContainer", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDeltaContainer_Deltas(), this.getDelta(), null, "deltas", null, 0, -1, DeltaContainer.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		EOperation op = initEOperation(getDelta__Apply(), null, "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getEInvalidDeltaException());
+
+		initEClass(deltaContainerEClass, DeltaContainer.class, "DeltaContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDeltaContainer_Deltas(), this.getDelta(), this.getDelta_Container(), "deltas", null, 0, -1, DeltaContainer.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(eInvalidDeltaExceptionEDataType, InvalidDeltaException.class, "EInvalidDeltaException", !IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

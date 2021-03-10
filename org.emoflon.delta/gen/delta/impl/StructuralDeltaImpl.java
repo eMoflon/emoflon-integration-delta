@@ -106,8 +106,7 @@ public class StructuralDeltaImpl extends EObjectImpl implements StructuralDelta 
 	@Override
 	public EList<EObject> getCreatedObjects() {
 		if (createdObjects == null) {
-			createdObjects = new EObjectContainmentEList<EObject>(EObject.class, this,
-					DeltaPackage.STRUCTURAL_DELTA__CREATED_OBJECTS);
+			createdObjects = new EObjectContainmentEList<EObject>(EObject.class, this, DeltaPackage.STRUCTURAL_DELTA__CREATED_OBJECTS);
 		}
 		return createdObjects;
 	}
@@ -120,8 +119,7 @@ public class StructuralDeltaImpl extends EObjectImpl implements StructuralDelta 
 	@Override
 	public EList<EObject> getDeletedObjects() {
 		if (deletedObjects == null) {
-			deletedObjects = new EObjectResolvingEList<EObject>(EObject.class, this,
-					DeltaPackage.STRUCTURAL_DELTA__DELETED_OBJECTS);
+			deletedObjects = new EObjectResolvingEList<EObject>(EObject.class, this, DeltaPackage.STRUCTURAL_DELTA__DELETED_OBJECTS);
 		}
 		return deletedObjects;
 	}
@@ -134,8 +132,7 @@ public class StructuralDeltaImpl extends EObjectImpl implements StructuralDelta 
 	@Override
 	public EList<Link> getCreatedLinks() {
 		if (createdLinks == null) {
-			createdLinks = new EObjectContainmentEList<Link>(Link.class, this,
-					DeltaPackage.STRUCTURAL_DELTA__CREATED_LINKS);
+			createdLinks = new EObjectContainmentEList<Link>(Link.class, this, DeltaPackage.STRUCTURAL_DELTA__CREATED_LINKS);
 		}
 		return createdLinks;
 	}
@@ -148,8 +145,7 @@ public class StructuralDeltaImpl extends EObjectImpl implements StructuralDelta 
 	@Override
 	public EList<Link> getDeletedLinks() {
 		if (deletedLinks == null) {
-			deletedLinks = new EObjectContainmentEList<Link>(Link.class, this,
-					DeltaPackage.STRUCTURAL_DELTA__DELETED_LINKS);
+			deletedLinks = new EObjectContainmentEList<Link>(Link.class, this, DeltaPackage.STRUCTURAL_DELTA__DELETED_LINKS);
 		}
 		return deletedLinks;
 	}
