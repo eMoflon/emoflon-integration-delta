@@ -43,7 +43,7 @@ public interface DeltaPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "platform:/resource/org.emoflon.delta/model/Delta.ecore";
+	String eNS_URI = "platform:/plugin/org.emoflon.delta/model/Delta.ecore";
 
 	/**
 	 * The package namespace name.
