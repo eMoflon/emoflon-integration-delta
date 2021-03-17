@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.delta.validation.DeltaValidator;
 import org.emoflon.delta.validation.InvalidDeltaException;
 import org.emoflon.ibex.common.emf.EMFEdge;
@@ -17,13 +18,12 @@ import delta.Link;
 import delta.StructuralDelta;
 
 public class DeltaApplication {
-	
-	
+
 	public static void applyDelta(Delta delta) throws InvalidDeltaException {
 		DeltaValidator.validate(delta);
 		DeltaApplication.apply(delta);
 	}
-	
+
 	private static void apply(Delta delta) {
 		delta.getAttributeDeltas().forEach(attrDelta -> applyAttributeDelta(attrDelta));
 		StructuralDelta strDelta = delta.getStructuralDelta();
@@ -42,7 +42,7 @@ public class DeltaApplication {
 		// if there are any problems with Democles, try create containment edges first
 		strDelta.getCreatedLinks().forEach(link -> createEdge(createEMFEdgeFromLink(link)));
 	}
-	
+
 	private static EMFEdge createEMFEdgeFromLink(Link link) {
 		return new EMFEdge(link.getSrc(), link.getTrg(), link.getType());
 	}
@@ -50,7 +50,7 @@ public class DeltaApplication {
 	private static boolean isDangling(EObject object) {
 		return object.eResource() == null;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static void createEdge(EMFEdge edge) {
 		if (edge.getSource() == null || edge.getTarget() == null)
@@ -67,19 +67,24 @@ public class DeltaApplication {
 	public static void deleteEdge(EMFEdge edge) {
 		if (edge.getSource() == null || edge.getTarget() == null)
 			return;
-		if (isDangling(edge.getSource()))
-			return;
+
+		// for containments: delete edge, but keep target object in resource, if resource is accessible
 		if (edge.getType().isContainment()) {
-			edge.getTarget().eResource().getContents().add(edge.getTarget());
-			return;
+			Resource res = edge.getTarget().eResource();
+			if (res != null) {
+				res.getContents().add(edge.getTarget());
+				return;
+			}
 		}
+
+		// for references and dangling nodes: just delete edge
 		if (edge.getType().isMany()) {
 			Collection<EObject> value = (Collection<EObject>) edge.getSource().eGet(edge.getType());
 			value.remove(edge.getTarget());
 		} else
 			edge.getSource().eSet(edge.getType(), null);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static void deleteElement(EObject element, boolean deleteContainedChildren) {
 		if (isDangling(element))
