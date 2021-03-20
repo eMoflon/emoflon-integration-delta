@@ -4,6 +4,8 @@ package delta;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -41,7 +43,7 @@ public interface DeltaPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "platform:/resource/org.emoflon.delta/model/Delta.ecore";
+	String eNS_URI = "platform:/plugin/org.emoflon.delta/model/Delta.ecore";
 
 	/**
 	 * The package namespace name.
@@ -271,13 +273,31 @@ public interface DeltaPackage extends EPackage {
 	int DELTA__STRUCTURAL_DELTA = 2;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELTA__CONTAINER = 3;
+
+	/**
 	 * The number of structural features of the '<em>Delta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELTA_FEATURE_COUNT = 3;
+	int DELTA_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELTA___APPLY = 0;
 
 	/**
 	 * The number of operations of the '<em>Delta</em>' class.
@@ -286,7 +306,7 @@ public interface DeltaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELTA_OPERATION_COUNT = 0;
+	int DELTA_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link delta.impl.DeltaContainerImpl <em>Container</em>}' class.
@@ -324,6 +344,16 @@ public interface DeltaPackage extends EPackage {
 	 * @ordered
 	 */
 	int DELTA_CONTAINER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '<em>EInvalid Delta Exception</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.emoflon.delta.validation.InvalidDeltaException
+	 * @see delta.impl.DeltaPackageImpl#getEInvalidDeltaException()
+	 * @generated
+	 */
+	int EINVALID_DELTA_EXCEPTION = 5;
 
 	/**
 	 * Returns the meta object for class '{@link delta.AttributeDelta <em>Attribute Delta</em>}'.
@@ -509,6 +539,27 @@ public interface DeltaPackage extends EPackage {
 	EReference getDelta_StructuralDelta();
 
 	/**
+	 * Returns the meta object for the container reference '{@link delta.Delta#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see delta.Delta#getContainer()
+	 * @see #getDelta()
+	 * @generated
+	 */
+	EReference getDelta_Container();
+
+	/**
+	 * Returns the meta object for the '{@link delta.Delta#apply() <em>Apply</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Apply</em>' operation.
+	 * @see delta.Delta#apply()
+	 * @generated
+	 */
+	EOperation getDelta__Apply();
+
+	/**
 	 * Returns the meta object for class '{@link delta.DeltaContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -528,6 +579,17 @@ public interface DeltaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDeltaContainer_Deltas();
+
+	/**
+	 * Returns the meta object for data type '{@link org.emoflon.delta.validation.InvalidDeltaException <em>EInvalid Delta Exception</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EInvalid Delta Exception</em>'.
+	 * @see org.emoflon.delta.validation.InvalidDeltaException
+	 * @model instanceClass="org.emoflon.delta.validation.InvalidDeltaException" serializeable="false"
+	 * @generated
+	 */
+	EDataType getEInvalidDeltaException();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -697,6 +759,22 @@ public interface DeltaPackage extends EPackage {
 		EReference DELTA__STRUCTURAL_DELTA = eINSTANCE.getDelta_StructuralDelta();
 
 		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DELTA__CONTAINER = eINSTANCE.getDelta_Container();
+
+		/**
+		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DELTA___APPLY = eINSTANCE.getDelta__Apply();
+
+		/**
 		 * The meta object literal for the '{@link delta.impl.DeltaContainerImpl <em>Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -713,6 +791,16 @@ public interface DeltaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DELTA_CONTAINER__DELTAS = eINSTANCE.getDeltaContainer_Deltas();
+
+		/**
+		 * The meta object literal for the '<em>EInvalid Delta Exception</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.emoflon.delta.validation.InvalidDeltaException
+		 * @see delta.impl.DeltaPackageImpl#getEInvalidDeltaException()
+		 * @generated
+		 */
+		EDataType EINVALID_DELTA_EXCEPTION = eINSTANCE.getEInvalidDeltaException();
 
 	}
 

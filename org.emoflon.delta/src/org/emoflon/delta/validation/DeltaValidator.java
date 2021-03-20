@@ -4,7 +4,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import delta.AttributeDelta;
 import delta.Delta;
-import delta.DeltaContainer;
 import delta.Link;
 import delta.StructuralDelta;
 
@@ -20,18 +19,16 @@ public class DeltaValidator {
 	private static final String NULL_REF_LINK_TYPE = "Value 'type' is not specified: ";
 
 	/**
-	 * Checks deltas for invalid constructs.
+	 * Checks delta for invalid constructs.
 	 * 
-	 * @param deltas
-	 * @throws InvalidDeltaException if a delta has an invalid construct
+	 * @param delta
+	 * @throws InvalidDeltaException if delta has an invalid construct
 	 */
-	public static void validate(DeltaContainer deltas) throws InvalidDeltaException {
-		for (Delta delta : deltas.getDeltas()) {
-			checkForNullRefs(delta);
-			checkForCreatedDanglingNodes(delta);
-			// adrianm: if there are any problems,
-			// maybe check for created-deleted pairs of elements or edges
-		}
+	public static void validate(Delta delta) throws InvalidDeltaException {
+		checkForNullRefs(delta);
+		checkForCreatedDanglingNodes(delta);
+		// adrianm: if there are any problems,
+		// maybe check for created-deleted pairs of elements or edges
 	}
 
 	private static void checkForNullRefs(Delta delta) throws InvalidDeltaException {

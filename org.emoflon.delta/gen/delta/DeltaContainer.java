@@ -26,11 +26,13 @@ public interface DeltaContainer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Deltas</b></em>' containment reference list.
 	 * The list contents are of type {@link delta.Delta}.
+	 * It is bidirectional and its opposite is '{@link delta.Delta#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deltas</em>' containment reference list.
 	 * @see delta.DeltaPackage#getDeltaContainer_Deltas()
-	 * @model containment="true"
+	 * @see delta.Delta#getContainer
+	 * @model opposite="container" containment="true"
 	 * @generated
 	 */
 	EList<Delta> getDeltas();

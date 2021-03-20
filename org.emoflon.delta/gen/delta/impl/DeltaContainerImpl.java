@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -71,9 +71,24 @@ public class DeltaContainerImpl extends EObjectImpl implements DeltaContainer {
 	@Override
 	public EList<Delta> getDeltas() {
 		if (deltas == null) {
-			deltas = new EObjectContainmentEList<Delta>(Delta.class, this, DeltaPackage.DELTA_CONTAINER__DELTAS);
+			deltas = new EObjectContainmentWithInverseEList<Delta>(Delta.class, this, DeltaPackage.DELTA_CONTAINER__DELTAS, DeltaPackage.DELTA__CONTAINER);
 		}
 		return deltas;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case DeltaPackage.DELTA_CONTAINER__DELTAS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getDeltas()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
